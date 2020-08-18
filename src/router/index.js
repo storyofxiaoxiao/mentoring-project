@@ -21,7 +21,20 @@ export const baseRouterMap = [{
     name: 'home',
     hidden: false,
   }]
-}, ]
+}, {
+  path: "/",
+  name: 'tableList',
+  component: Layout,
+  meta: {
+    icon: 'tableList',
+  },
+  children: [{
+    path: 'tableList',
+    component: () => import('@/views/tableList/index'),
+    name: 'tableList',
+    hidden: false,
+  }]
+}]
 
 const router = new VueRouter({
   mode: 'history',

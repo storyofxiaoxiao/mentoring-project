@@ -1,8 +1,12 @@
 <template>
-  <div>123123123</div>
+  <div>
+    <a-button type="primary">hello world</a-button>
+  </div>
 </template>
 <script>
+import { Button } from "ant-design-vue";
 export default {
   name: "home",
+  components: { AButton: Button },
 };
 </script>

@@ -8,26 +8,20 @@
       <a-menu
         theme="dark"
         mode="horizontal"
-        :default-selected-keys="['2']"
+        :default-selected-keys="['home']"
         :style="{ lineHeight: '64px' }"
+        @click="handleClick"
       >
-        <a-menu-item key="1">
-          nav 1
+        <a-menu-item key="home">
+          home
         </a-menu-item>
-        <a-menu-item key="2">
-          nav 2
-        </a-menu-item>
-        <a-menu-item key="3">
-          nav 3
+        <a-menu-item key="tableList">
+          tableList
         </a-menu-item>
       </a-menu>
     </a-layout-header>
     <a-layout-content style="padding: 0 50px">
-      <a-breadcrumb style="margin: 16px 0">
-        <a-breadcrumb-item>Home</a-breadcrumb-item>
-        <a-breadcrumb-item>List</a-breadcrumb-item>
-        <a-breadcrumb-item>App</a-breadcrumb-item>
-      </a-breadcrumb>
+      <Breadcrumb></Breadcrumb>
       <div :style="{ background: '#fff', padding: '24px', minHeight: '280px' }">
         <router-view></router-view>
       </div>
@@ -38,11 +32,31 @@
   </a-layout>
 </template>
 <script>
-import { Breadcrumb } from "ant-design-vue";
+import { Layout, Menu } from "ant-design-vue";
+import Breadcrumb from "./components/Breadcrumb";
+
 export default {
   name: "layout",
   components: {
-    ABreadcrumb: Breadcrumb,
+    Breadcrumb,
+    ALayout: Layout,
+    ALayoutFooter: Layout.Footer,
+    ALayoutHeader: Layout.Header,
+    ALayoutContent: Layout.Content,
+    AMenu: Menu,
+    AMenuItem: Menu.Item,
+  },
+  data() {
+    return {
+      // breadcrumb: baseRouterMap,
+    };
+  },
+  methods: {
+    // 点击路由前往路由页面
+    handleClick(e) {
+      console.log("33333-", e);
+      this.$router.push({ name: e.key });
+    },
   },
 };
 </script>
