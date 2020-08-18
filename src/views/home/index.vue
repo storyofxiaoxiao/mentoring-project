@@ -8,5 +8,14 @@ import { Button } from "ant-design-vue";
 export default {
   name: "home",
   components: { AButton: Button },
+  mounted() {
+    this.$nextTick(() => {
+      import(
+        /* webpackPrefetch: true */
+        /*webpackChunkName: 'tableList'*/
+        "../tableList"
+      );
+    });
+  },
 };
 </script>
