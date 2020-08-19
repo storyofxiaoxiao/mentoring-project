@@ -16,7 +16,7 @@ module.exports = {
   // 生产环境是否生成 sourceMap 文件
   productionSourceMap: false,
   // lintOnSave: false // 取消 eslint 验证
-  productionGzip: true,
+  // productionGzip: true,
   chainWebpack: config => {
     // 移除 prefetch 插件
     // config.plugins.delete('prefetch')
