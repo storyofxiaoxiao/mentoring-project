@@ -9,6 +9,7 @@ export default {
   name: "home",
   components: { AButton: Button },
   mounted() {
+    // ******* PREFETCH *******
     this.$nextTick(() => {
       import(
         /* webpackPrefetch: true */
